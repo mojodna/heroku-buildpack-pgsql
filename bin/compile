@@ -6,6 +6,7 @@ set -e # fail fast
 # parse params
 BUILD_DIR=$1
 CACHE_DIR=$2
+BUILDPACK_DIR=$(cd $(dirname $0)/..; pwd)
 
 # use pigz if available for (potentially) faster decompression
 type pigz > /dev/null 2>&1 && alias tar='tar --use-compress-program=pigz'
@@ -41,7 +42,7 @@ vendor "https://s3.amazonaws.com/mojodna-heroku/pgsql-9.3.0-1.tar.gz" "$BUILD_DI
 
 echo "-----> Configuring build environment"
 
-cat <<EOF > export
+cat <<EOF > $BUILDPACK_DIR/export
 export PATH="$PATH:\$PATH"
 export LD_LIBRARY_PATH="\$LD_LIBRARY_PATH:$LD_LIBRARY_PATH"
 export LIBRARY_PATH="\$LIBRARY_PATH:$LIBRARY_PATH"
