@@ -1,4 +1,4 @@
-# heroku-buildpack-psql
+# heroku-buildpack-pgsql
 
 I am a Heroku buildpack that installs updated PostgreSQL binaries, headers, and
 libraries. (The binary bit is the important part, as cedar images do not
@@ -21,7 +21,7 @@ build environment (`CPATH`, `LIBRARY_PATH`, etc.) to be set correctly.)
 When creating a new Heroku app:
 
 ```bash
-heroku apps:create -b https://github.com/mojodna/heroku-buildpack-psql.git
+heroku apps:create -b https://github.com/mojodna/heroku-buildpack-pgsql.git
 
 git push heroku master
 ```
@@ -29,7 +29,7 @@ git push heroku master
 When modifying an existing Heroku app:
 
 ```bash
-heroku config:set BUILDPACK_URL=https://github.com/mojodna/heroku-buildpack-psql.git
+heroku config:set BUILDPACK_URL=https://github.com/mojodna/heroku-buildpack-pgsql.git
 
 git push heroku master
 ```
@@ -42,7 +42,7 @@ When creating a new Heroku app:
 heroku apps:create -b https://github.com/mojodna/heroku-buildpack-multi.git#build-env
 
 cat << EOF > .buildpacks
-https://github.com/mojodna/heroku-buildpack-psql.git
+https://github.com/mojodna/heroku-buildpack-pgsql.git
 ...
 EOF
 
@@ -55,7 +55,7 @@ When modifying an existing Heroku app:
 heroku config:set BUILDPACK_URL=https://github.com/mojodna/heroku-buildpack-multi.git#build-env
 
 cat << EOF > .buildpacks
-https://github.com/mojodna/heroku-buildpack-psql.git
+https://github.com/mojodna/heroku-buildpack-pgsql.git
 ...
 EOF
 
