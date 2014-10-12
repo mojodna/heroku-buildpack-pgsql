@@ -1,0 +1,3 @@
+[submodule "stack-images"]
+	path = stack-images
+	url = https://github.com/heroku/stack-images
