@@ -61,18 +61,8 @@ git push heroku master
 
 ## Building
 
-PostgreSQL was built in an Ubuntu 10.04 chroot / VM with the following options.
-(See [heroku/stack-images](https://github.com/heroku/stack-images) for package
-listings and post-installation.)
+PostgreSQL is built using Docker. To build:
 
 ```bash
-mkdir -p /app/vendor
-curl -LO http://ftp.postgresql.org/pub/source/v9.3.0/postgresql-9.3.0.tar.gz
-tar xf postgresql-9.3.0.tar.gz
-./configure --prefix=/app/vendor/pgsql --with-openssl
-make -C src/bin install-strip && \
-  make -C src/include install-strip && \
-  make -C src/interfaces install-strip
-cd /app/vendor/pgsql
-tar zcf /tmp/pgsql-9.3.0-1.tar.gz .
+make
 ```
